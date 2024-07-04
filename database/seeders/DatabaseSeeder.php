@@ -23,10 +23,10 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => time()
         ]);
 
-        // creating fake data
+        // generating fake data
         Project::factory()
             ->count(30)
             ->hasTasks(30)
-            ->created();
+            ->create();
     }
 }
