@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    
+    // creating relationship with tasks
     public function tasks(){
         return $this->hasMany(Task::class);
     }
