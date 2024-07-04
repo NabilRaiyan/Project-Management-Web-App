@@ -16,6 +16,7 @@ class TaskFactory extends Factory
      */
     public function definition(): array
     {
+        // defining the schema of Task
         return [
             'name'=>fake()->sentence(),
             'description'=>fake()->realText(),
