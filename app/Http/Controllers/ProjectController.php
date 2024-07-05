@@ -6,7 +6,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 
-// 
+// creating project controller class
 class ProjectController extends Controller
 {
     /**
