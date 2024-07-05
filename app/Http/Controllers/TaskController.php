@@ -6,7 +6,7 @@ use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 
-// 
+// creating task controller
 class TaskController extends Controller
 {
     /**
