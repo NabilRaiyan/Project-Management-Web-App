@@ -6,7 +6,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 
-// 
+// creating user controller
 class UserController extends Controller
 {
     /**
