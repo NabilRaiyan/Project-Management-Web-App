@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// update project request class
 class UpdateProjectRequest extends FormRequest
 {
     /**
