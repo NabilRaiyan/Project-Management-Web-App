@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Inertia\Inertia;
 
 // creating project controller class
 class ProjectController extends Controller
@@ -14,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        return inertia("Project/Index", []);
     }
 
     /**
