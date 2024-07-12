@@ -1,3 +1,6 @@
+// video watched until 1:51 min
+
+
 import Pagination from "@/Components/Pagination";
 import SelectInput from "@/Components/SelectInput";
 import TextInput from "@/Components/TextInput";
@@ -57,10 +60,10 @@ export default function Index({auth, projects, queryParams = null}){
                                 <th className="px-3 py-5"></th>
                                 <th className="px-3 py-5"></th>
                                 <th className="px-3 py-5">
-                                    <TextInput className="w-full" placeholder="Project Name" onBlur={e => searchFieldChanged('name', e.target.value)} onKeyPress={e => onKeyPress('name', e)} />
+                                    <TextInput defaultValue={queryParams.name} className="w-full" placeholder="Project Name" onBlur={e => searchFieldChanged('name', e.target.value)} onKeyPress={e => onKeyPress('name', e)} />
                                 </th>
                                 <th className="px-3 py-5">
-                                    <SelectInput className="w-full" onChange={(e) => searchFieldChanged('status', e.target.value)}> 
+                                    <SelectInput defaultValue={queryParams.status} className="w-full" onChange={(e) => searchFieldChanged('status', e.target.value)}> 
                                         <option value="">Select Status</option>
                                         <option value="pending">Pending</option>
                                         <option value="in_progress">In Progress</option>
@@ -79,15 +82,15 @@ export default function Index({auth, projects, queryParams = null}){
                             <tr key={project.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td className="px-3 py-2 text-nowrap">{project.id}</td>
                                 <td className="px-3 py-2 text-nowrap"><img src={project.image_path} style={{width:60}} alt=""/></td>
-                                <td className="px-3 py-2 text-nowrap">{project.name}</td>
-                                <td className="px-3 py-2 text-nowrap">
+                                <td className="px-3 py-2">{project.name}</td>
+                                <td className="px-3 py-2">
                                     <span className={
                                         "px-3 py-1 rounded text-white " + PROJECT_STATUS_CLASS_MAP[project.status]
                                     }>{PROJECT_STATUS_TEXT_MAP[project.status]}</span>
                                 </td>
                                 <td className="px-3 py-2 text-nowrap">{project.created_at}</td>
                                 <td className="px-3 py-2 text-nowrap">{project.due_date}</td>
-                                <td className="px-3 py-2 text-nowrap">{project.createdBy.name}</td>
+                                <td className="px-3 py-2">{project.createdBy.name}</td>
                                 <td className="px-3 py-2 text-nowrap">
                                     <Link href={route('project.edit', project.id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-1">
                                         Edit
