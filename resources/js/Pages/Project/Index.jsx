@@ -1,10 +1,22 @@
 import Pagination from "@/Components/Pagination";
+import SelectInput from "@/Components/SelectInput";
+import TextInput from "@/Components/TextInput";
 import { PROJECT_STATUS_CLASS_MAP, PROJECT_STATUS_TEXT_MAP } from "@/constants";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link } from "@inertiajs/react";
 
 
-export default function Index({auth, projects}){
+export default function Index({auth, projects, queryParams = null}){
+    // searchFieldChange Function
+    queryParams == queryParams || {}
+
+    const searchFieldChanged = (name, value) =>{
+        if (value){
+            queryParams[name] = value
+        }else{
+            delete queryParams[name]
+        }
+    }
     return (
         <AuthenticatedLayout
         user={auth.user}
@@ -29,11 +41,26 @@ export default function Index({auth, projects}){
                                 <th className="px-3 py-5">Due Date</th>
                                 <th className="px-3 py-5">Created By</th>
                                 <th className="px-3 py-5 text-right">Actions</th>
-
+                            </tr>
+                        </thead>
+                        <thead className="text-ts text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
+                            <tr className="text-nowrap">
+                                <th className="px-3 py-5"></th>
+                                <th className="px-3 py-5"></th>
+                                <th className="px-3 py-5">
+                                    <TextInput className="w-full" placeholder="Project Name" onBlur={e => searchFieldChanged('name', e.target.value)} onKeyPress={e => onKeyPress('name', e)} />
+                                </th>
+                                <th className="px-3 py-5">
+                                    <SelectInput className="w-full" onChange={e => searchFieldChanged('status', e.target.value)}  />
+                                </th>
+                                <th className="px-3 py-5"></th>
+                                <th className="px-3 py-5"></th>
+                                <th className="px-3 py-5"></th>
+                                <th className="px-3 py-5"></th>
                             </tr>
                         </thead>
                         <tbody>
-                        {projects.data.map(project => (
+                        {projects.data.map((project) => (
                             <tr key={project.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td className="px-3 py-2 text-nowrap">{project.id}</td>
                                 <td className="px-3 py-2 text-nowrap"><img src={project.image_path} style={{width:60}} alt=""/></td>
