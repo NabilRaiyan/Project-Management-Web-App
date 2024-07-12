@@ -3,12 +3,12 @@ import SelectInput from "@/Components/SelectInput";
 import TextInput from "@/Components/TextInput";
 import { PROJECT_STATUS_CLASS_MAP, PROJECT_STATUS_TEXT_MAP } from "@/constants";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 
 
 export default function Index({auth, projects, queryParams = null}){
     // searchFieldChange Function
-    queryParams == queryParams || {}
+    queryParams = queryParams || {}
 
     const searchFieldChanged = (name, value) =>{
         if (value){
@@ -16,6 +16,15 @@ export default function Index({auth, projects, queryParams = null}){
         }else{
             delete queryParams[name]
         }
+
+        router.get(route('project.index'), queryParams);
+    };
+
+    // onKeyPress Function
+    const onKeyPress = (name, e) => {
+        if (e.key != "Enter") return;
+
+        searchFieldChanged(name, e.target.value);
     }
     return (
         <AuthenticatedLayout
@@ -51,7 +60,13 @@ export default function Index({auth, projects, queryParams = null}){
                                     <TextInput className="w-full" placeholder="Project Name" onBlur={e => searchFieldChanged('name', e.target.value)} onKeyPress={e => onKeyPress('name', e)} />
                                 </th>
                                 <th className="px-3 py-5">
-                                    <SelectInput className="w-full" onChange={e => searchFieldChanged('status', e.target.value)}  />
+                                    <SelectInput className="w-full" onChange={(e) => searchFieldChanged('status', e.target.value)}> 
+                                        <option value="">Select Status</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="in_progress">In Progress</option>
+                                        <option value="completed">Completed</option>
+
+                                    </SelectInput>
                                 </th>
                                 <th className="px-3 py-5"></th>
                                 <th className="px-3 py-5"></th>
