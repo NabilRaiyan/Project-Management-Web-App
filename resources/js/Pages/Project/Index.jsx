@@ -49,9 +49,9 @@ export default function Index({auth, projects, queryParams = null}){
                                 <th className="px-3 py-5">Image</th>
                                 <th className="px-3 py-5">Name</th>
                                 <th className="px-3 py-5">Status</th>
-                                <th className="px-3 py-5">Created Date</th>
-                                <th className="px-3 py-5">Due Date</th>
-                                <th className="px-3 py-5">Created By</th>
+                                <th className="px-1 py-5 text-nowrap">Created Date</th>
+                                <th className="px-3 py-5 text-nowrap">Due Date</th>
+                                <th className="px-1 py-5 text-nowrap">Created By</th>
                                 <th className="px-3 py-5 text-right">Actions</th>
                             </tr>
                         </thead>
@@ -59,11 +59,11 @@ export default function Index({auth, projects, queryParams = null}){
                             <tr className="text-nowrap">
                                 <th className="px-3 py-5"></th>
                                 <th className="px-3 py-5"></th>
-                                <th className="px-3 py-5">
-                                    <TextInput defaultValue={queryParams.name} className="w-full" placeholder="Project Name" onBlur={e => searchFieldChanged('name', e.target.value)} onKeyPress={e => onKeyPress('name', e)} />
+                                <th className="px-1 py-5">
+                                    <TextInput defaultValue={queryParams.name} className="w-80" placeholder="Project Name" onBlur={e => searchFieldChanged('name', e.target.value)} onKeyPress={e => onKeyPress('name', e)} />
                                 </th>
-                                <th className="px-3 py-5">
-                                    <SelectInput defaultValue={queryParams.status} className="w-full" onChange={(e) => searchFieldChanged('status', e.target.value)}> 
+                                <th className="px-1 py-5">
+                                    <SelectInput defaultValue={queryParams.status} className="w-50" onChange={(e) => searchFieldChanged('status', e.target.value)}> 
                                         <option value="">Select Status</option>
                                         <option value="pending">Pending</option>
                                         <option value="in_progress">In Progress</option>
@@ -71,10 +71,10 @@ export default function Index({auth, projects, queryParams = null}){
 
                                     </SelectInput>
                                 </th>
-                                <th className="px-3 py-5"></th>
-                                <th className="px-3 py-5"></th>
-                                <th className="px-3 py-5"></th>
-                                <th className="px-3 py-5"></th>
+                                <th className="px-3 py-5 text-nowrap"></th>
+                                <th className="px-3 py-5 text-nowrap"></th>
+                                <th className="px-3 py-5 text-nowrap"></th>
+                                <th className="px-3 py-5 text-nowrap"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,7 +89,7 @@ export default function Index({auth, projects, queryParams = null}){
                                     }>{PROJECT_STATUS_TEXT_MAP[project.status]}</span>
                                 </td>
                                 <td className="px-3 py-2 text-nowrap">{project.created_at}</td>
-                                <td className="px-3 py-2 text-nowrap">{project.due_date}</td>
+                                <td className="px-1 py-2 text-nowrap">{project.due_date}</td>
                                 <td className="px-3 py-2">{project.createdBy.name}</td>
                                 <td className="px-3 py-2 text-nowrap">
                                     <Link href={route('project.edit', project.id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-1">
