@@ -1,3 +1,6 @@
+<!-- start laravel server using: "php -S 127.0.0.1:8000 -t public/" -->
+
+
 <?php
 
 use App\Http\Controllers\ProfileController;
