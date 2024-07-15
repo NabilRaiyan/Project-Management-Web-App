@@ -7,6 +7,7 @@ import TextInput from "@/Components/TextInput";
 import { PROJECT_STATUS_CLASS_MAP, PROJECT_STATUS_TEXT_MAP } from "@/constants";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, router } from "@inertiajs/react";
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/16/solid'
 
 
 export default function Index({auth, projects, queryParams = null}){
@@ -61,12 +62,33 @@ export default function Index({auth, projects, queryParams = null}){
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead className="text-ts text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
                             <tr className="text-nowrap">
-                                <th onClick={(e)=> sortChange('Id')} className="px-3 py-5">ID</th>
+                                <th onClick={(e)=> sortChange('Id')} className="px-3 py-5 flex justify-between items-center">
+                                    ID
+                                    <div>
+                                    <ChevronUpIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4" />
+                                    </div>
+                                </th>
                                 <th className="px-3 py-5">Image</th>
-                                <th onClick={(e)=> sortChange('name')} className="px-3 py-5">Name</th>
-                                <th onClick={(e)=> sortChange('status')} className="px-3 py-5">Status</th>
-                                <th onClick={(e)=> sortChange('created_at')} className="px-1 py-5 text-nowrap">Created Date</th>
-                                <th onClick={(e)=> sortChange('due_date')} className="px-3 py-5 text-nowrap">Due Date</th>
+                                <th onClick={(e)=> sortChange('name')} className="px-3 py-5 justify-between items-center">
+                                    Name
+                                    <div>
+                                    <ChevronUpIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4" />
+                                    </div>
+                                </th>
+                                <th onClick={(e)=> sortChange('status')} className="px-3 py-5 justify-between items-center">
+                                    Status
+                                    
+                                </th>
+                                <th onClick={(e)=> sortChange('created_at')} className="px-1 py-5 justify-between items-center text-nowrap">
+                                    Created Date
+                                    
+                                </th>
+                                <th onClick={(e)=> sortChange('due_date')} className="px-3 py-5 justify-between items-center text-nowrap">
+                                    Due Date
+                                    
+                                </th>
                                 <th className="px-1 py-5 text-nowrap">Created By</th>
                                 <th className="px-3 py-5 text-right">Actions</th>
                             </tr>
