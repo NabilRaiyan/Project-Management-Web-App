@@ -59,40 +59,45 @@ export default function Index({auth, projects, queryParams = null}){
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div className="p-6 text-gray-900">All project</div>
+                    <div className="overflow-auto">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead className="text-ts text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
                             <tr className="text-nowrap">
-                                <th onClick={(e)=> sortChange('Id')} className="px-3 py-5 flex justify-between items-center">
+                                <th onClick={(e)=> sortChange('Id')} className="px-3 py-5">
                                     ID
                                     <div>
                                     <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4 -mt-2" />
                                     </div>
                                 </th>
                                 <th className="px-3 py-5">Image</th>
-                                <th onClick={(e)=> sortChange('name')} className="px-3 py-5 justify-between items-center">
+                                <th onClick={(e)=> sortChange('name')} className="px-3 py-5">
                                     Name
                                     <div>
                                     <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4 -mt-2" />
                                     </div>
                                 </th>
-                                <th onClick={(e)=> sortChange('status')} className="px-3 py-5 justify-between items-center">
+                                <th onClick={(e)=> sortChange('status')} className="px-3 py-5">
                                     Status
                                     <div>
                                     <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4 -mt-2" />
                                     </div>
                                 </th>
-                                <th onClick={(e)=> sortChange('created_at')} className="px-1 py-5 justify-between items-center text-nowrap">
+                                <th onClick={(e)=> sortChange('created_at')} className="px-1 py-5 ">
                                     Created Date
+                                    <div>
+                                    <ChevronUpIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4 -mt-2" />
+                                    </div>
                                     
                                 </th>
-                                <th onClick={(e)=> sortChange('due_date')} className="px-3 py-5 justify-between items-center text-nowrap">
+                                <th onClick={(e)=> sortChange('due_date')} className="px-3 py-5 ">
                                     Due Date
                                     <div>
                                     <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4 -mt-2" />
                                     </div>
                                 </th>
                                 <th className="px-1 py-5 text-nowrap">Created By</th>
@@ -150,6 +155,7 @@ export default function Index({auth, projects, queryParams = null}){
                             
                         </tbody>
                     </table>
+                    </div>
                     <Pagination links={projects.meta.links} />
                 </div>
             </div>
