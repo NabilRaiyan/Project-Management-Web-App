@@ -79,7 +79,10 @@ export default function Index({auth, projects, queryParams = null}){
                                 </th>
                                 <th onClick={(e)=> sortChange('status')} className="px-3 py-5 justify-between items-center">
                                     Status
-                                    
+                                    <div>
+                                    <ChevronUpIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4" />
+                                    </div>
                                 </th>
                                 <th onClick={(e)=> sortChange('created_at')} className="px-1 py-5 justify-between items-center text-nowrap">
                                     Created Date
@@ -87,7 +90,10 @@ export default function Index({auth, projects, queryParams = null}){
                                 </th>
                                 <th onClick={(e)=> sortChange('due_date')} className="px-3 py-5 justify-between items-center text-nowrap">
                                     Due Date
-                                    
+                                    <div>
+                                    <ChevronUpIcon className="w-4" />
+                                    <ChevronDownIcon className="w-4" />
+                                    </div>
                                 </th>
                                 <th className="px-1 py-5 text-nowrap">Created By</th>
                                 <th className="px-3 py-5 text-right">Actions</th>
