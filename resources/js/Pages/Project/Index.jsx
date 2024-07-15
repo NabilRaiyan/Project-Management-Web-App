@@ -40,9 +40,11 @@ export default function Index({auth, projects, queryParams = null}){
             }
         }else{
             queryParams.sort_field = name;
-            queryParams.sort_direction = 'asc';
+            queryParams.sort_direction = "asc";
         }
+        router.get(route('project.index'), queryParams);
     }
+
     return (
         <AuthenticatedLayout
         user={auth.user}
