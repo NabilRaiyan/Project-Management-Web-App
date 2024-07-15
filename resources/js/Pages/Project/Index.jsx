@@ -29,6 +29,17 @@ export default function Index({auth, projects, queryParams = null}){
 
         searchFieldChanged(name, e.target.value);
     }
+
+    // sortChange function
+    const sortChange = (name)=> {
+        if (name === queryParams.sort_field){
+            if (queryParams.sort_direction === 'asc'){
+                queryParams.sort_direction = 'desc';
+            }else{
+                queryParams.sort_direction = 'asc';
+            }
+        }
+    }
     return (
         <AuthenticatedLayout
         user={auth.user}
