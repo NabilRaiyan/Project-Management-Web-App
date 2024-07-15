@@ -38,6 +38,9 @@ export default function Index({auth, projects, queryParams = null}){
             }else{
                 queryParams.sort_direction = 'asc';
             }
+        }else{
+            queryParams.sort_field = name;
+            queryParams.sort_direction = 'asc';
         }
     }
     return (
