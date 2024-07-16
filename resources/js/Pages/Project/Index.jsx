@@ -1,4 +1,4 @@
-// video watched until 2:05 min
+// video watched until 2:28 min
 
 
 import Pagination from "@/Components/Pagination";
