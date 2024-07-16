@@ -8,6 +8,7 @@ import { PROJECT_STATUS_CLASS_MAP, PROJECT_STATUS_TEXT_MAP } from "@/constants";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, router } from "@inertiajs/react";
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/16/solid'
+import TableHeading from "@/Components/TableHeading";
 
 
 export default function Index({auth, projects, queryParams = null}){
@@ -63,53 +64,16 @@ export default function Index({auth, projects, queryParams = null}){
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead className="text-ts text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
                             <tr className="text-nowrap">
-                                <th onClick={(e)=> sortChange('Id')}>
-                                    <div className="px-3 py-5 flex justify-between items-center cursor-pointer">
-                                    ID
-                                    <div>
-                                        <ChevronUpIcon className="w-4" />
-                                        <ChevronDownIcon className="w-4 -mt-2" />
-                                    </div>
-                                    </div>
-                                </th>
+                                <TableHeading sortChange={sortChange} name="id" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >ID</TableHeading>
                                 <th className="px-3 py-5">Image</th>
-                                <th onClick={(e)=> sortChange('name')}>
-                                <div className="px-3 py-3 flex items-center justify-between cursor-pointer">
-                                    Name
-                                    <div>
-                                        <ChevronUpIcon className="w-4" />
-                                        <ChevronDownIcon className="w-4 -mt-2" />
-                                    </div>
-                                    </div>
-                                </th>
-                                <th onClick={(e)=> sortChange('status')}>
-                                <div className="px-3 py-5 flex justify-between items-center cursor-pointer">
-                                    Status
-                                    <div>
-                                        <ChevronUpIcon className="w-4" />
-                                        <ChevronDownIcon className="w-4 -mt-2" />
-                                    </div>
-                                    </div>
-                                </th>
-                                <th onClick={(e)=> sortChange('created_at')} className="">
-                                <div className="px-3 py-5 flex justify-between items-center cursor-pointer">
-                                    Created Date
-                                    <div>
-                                        <ChevronUpIcon className="w-4" />
-                                        <ChevronDownIcon className="w-4 -mt-2" />
-                                    </div>
-                                    </div>
-                                    
-                                </th>
-                                <th onClick={(e)=> sortChange('due_date')} className=" ">
-                                <div className="px-3 py-5 flex justify-between items-center cursor-pointer">
-                                    Due Date
-                                    <div>
-                                        <ChevronUpIcon className="w-4" />
-                                        <ChevronDownIcon className="w-4 -mt-2" />
-                                    </div>
-                                    </div>
-                                </th>
+                                <TableHeading sortChange={sortChange} name="name" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >Name</TableHeading>
+
+                                <TableHeading sortChange={sortChange} name="status" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >Status</TableHeading>
+
+                                <TableHeading sortChange={sortChange} name="created_at" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >Created At</TableHeading>
+
+                                <TableHeading sortChange={sortChange} name="due_date" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >Due Date</TableHeading>
+
                                 <th className="px-1 py-5 text-nowrap">Created By</th>
                                 <th className="px-3 py-5 text-right">Actions</th>
                             </tr>
