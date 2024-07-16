@@ -67,7 +67,12 @@ export default function Show({auth, project}){
                                 <p className="mt-2 px-3">{project.updatedBy.name}</p>
                             </div>
                         </div>
+                        <div>
+                            <label className="px-3 font-bold text-lg">Project Description</label>
+                            <p className="mt-1 px-3 py-2 mb-3">{project.description}</p>
+                        </div>
                 </div>
+                
             </div>
         </div>
 
