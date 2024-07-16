@@ -12,6 +12,7 @@ export default function Show({auth, project}){
             </h2>
             }
         >
+        {/* Single Project details */}
         <div className="py-12">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -68,9 +69,20 @@ export default function Show({auth, project}){
                             </div>
                         </div>
                         <div>
-                            <label className="px-3 font-bold text-lg">Project Description</label>
-                            <p className="mt-1 px-3 py-2 mb-3">{project.description}</p>
+                            <label className="px-6 font-bold text-lg">Project Description</label>
+                            <p className="mt-1 px-6 py-2 mb-3">{project.description}</p>
                         </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+        {/* Task table  */}
+        <div className="py-12">
+            <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg py-5 px-6">
+                        Tabel goes here
                 </div>
                 
             </div>
