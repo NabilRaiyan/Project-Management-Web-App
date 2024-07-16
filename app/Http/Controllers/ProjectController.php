@@ -55,6 +55,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $query = $project->tasks();
+        
         $sort_field = request('sort_field', 'created_at');
         $sort_direction = request('sort_direction', "desc");
 

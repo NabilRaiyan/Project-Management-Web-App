@@ -80,7 +80,7 @@ export default function Show({auth, project, tasks, queryParams}){
 
 
         {/* Task table  */}
-        <div className="py-12">
+        <div className="pb-12">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg py-5 px-6">
                         <TaskTable tasks={tasks} queryParams={queryParams}></TaskTable>
