@@ -1,4 +1,4 @@
-// video watched until 1:51 min
+// video watched until 2:05 min
 
 
 import Pagination from "@/Components/Pagination";
@@ -63,41 +63,51 @@ export default function Index({auth, projects, queryParams = null}){
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead className="text-ts text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
                             <tr className="text-nowrap">
-                                <th onClick={(e)=> sortChange('Id')} className="px-3 py-5">
+                                <th onClick={(e)=> sortChange('Id')}>
+                                    <div className="px-3 py-5 flex justify-between items-center">
                                     ID
                                     <div>
-                                    <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4 -mt-2" />
+                                        <ChevronUpIcon className="w-4" />
+                                        <ChevronDownIcon className="w-4 -mt-2" />
+                                    </div>
                                     </div>
                                 </th>
                                 <th className="px-3 py-5">Image</th>
-                                <th onClick={(e)=> sortChange('name')} className="px-3 py-5">
+                                <th onClick={(e)=> sortChange('name')}>
+                                <div className="px-3 py-5 flex items-center justify-between">
                                     Name
                                     <div>
-                                    <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4 -mt-2" />
+                                        <ChevronUpIcon className="w-4" />
+                                        <ChevronDownIcon className="w-4 -mt-2" />
+                                    </div>
                                     </div>
                                 </th>
-                                <th onClick={(e)=> sortChange('status')} className="px-3 py-5">
+                                <th onClick={(e)=> sortChange('status')}>
+                                <div className="px-3 py-5 flex justify-between items-center">
                                     Status
                                     <div>
-                                    <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4 -mt-2" />
+                                        <ChevronUpIcon className="w-4" />
+                                        <ChevronDownIcon className="w-4 -mt-2" />
+                                    </div>
                                     </div>
                                 </th>
-                                <th onClick={(e)=> sortChange('created_at')} className="px-1 py-5 ">
+                                <th onClick={(e)=> sortChange('created_at')} className="">
+                                <div className="px-3 py-5 flex justify-between items-center">
                                     Created Date
                                     <div>
-                                    <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4 -mt-2" />
+                                        <ChevronUpIcon className="w-4" />
+                                        <ChevronDownIcon className="w-4 -mt-2" />
+                                    </div>
                                     </div>
                                     
                                 </th>
-                                <th onClick={(e)=> sortChange('due_date')} className="px-3 py-5 ">
+                                <th onClick={(e)=> sortChange('due_date')} className=" ">
+                                <div className="px-3 py-5 flex justify-between items-center">
                                     Due Date
                                     <div>
-                                    <ChevronUpIcon className="w-4" />
-                                    <ChevronDownIcon className="w-4 -mt-2" />
+                                        <ChevronUpIcon className="w-4" />
+                                        <ChevronDownIcon className="w-4 -mt-2" />
+                                    </div>
                                     </div>
                                 </th>
                                 <th className="px-1 py-5 text-nowrap">Created By</th>
