@@ -59,10 +59,9 @@ export default function Index({auth, projects, queryParams = null}){
         <div className="py-12">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div className="p-6 text-gray-900">All project</div>
                     <div className="overflow-auto">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead className="text-ts text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
                             <tr className="text-nowrap">
                                 <TableHeading sortChange={sortChange} name="id" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >ID</TableHeading>
                                 <th className="px-3 py-5">Image</th>
@@ -74,7 +73,7 @@ export default function Index({auth, projects, queryParams = null}){
 
                                 <TableHeading sortChange={sortChange} name="due_date" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >Due Date</TableHeading>
 
-                                <th className="px-1 py-5 text-nowrap">Created By</th>
+                                <th className="px-1 py-5">Created By</th>
                                 <th className="px-3 py-5 text-right">Actions</th>
                             </tr>
                         </thead>
