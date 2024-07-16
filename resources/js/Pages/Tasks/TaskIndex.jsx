@@ -5,12 +5,8 @@ import { Head, Link, router } from "@inertiajs/react";
 import TaskTable from "./TaskTable";
 
 
-export default function Index({auth, tasks, queryParams = null}){
-    // searchFieldChange Function
-    queryParams = queryParams || {}
-
-    
-
+export default function Index({auth, tasks, queryParams}){
+  
     return (
         <AuthenticatedLayout
         user={auth.user}

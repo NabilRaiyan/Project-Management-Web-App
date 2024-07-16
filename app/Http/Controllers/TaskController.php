@@ -19,6 +19,8 @@ class TaskController extends Controller
         $sort_field = request('sort_field', 'created_at');
         $sort_direction = request('sort_direction', "desc");
         $query = Task::query();
+
+        
         if (request("name")){
             $query->where("name", "like", "%" . request("name") . "%");
         }

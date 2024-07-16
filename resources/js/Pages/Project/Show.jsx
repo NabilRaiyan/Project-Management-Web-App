@@ -1,8 +1,9 @@
 import { PROJECT_STATUS_CLASS_MAP, PROJECT_STATUS_TEXT_MAP } from "@/constants";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import TaskTable from "../Tasks/TaskTable";
 
 
-export default function Show({auth, project}){
+export default function Show({auth, project, tasks, queryParams}){
     return (
         <AuthenticatedLayout
         user={auth.user}
@@ -82,7 +83,7 @@ export default function Show({auth, project}){
         <div className="py-12">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg py-5 px-6">
-                        Tabel goes here
+                        <TaskTable tasks={tasks} queryParams={queryParams}></TaskTable>
                 </div>
                 
             </div>

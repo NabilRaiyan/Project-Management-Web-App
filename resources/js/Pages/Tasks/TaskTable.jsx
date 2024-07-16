@@ -5,7 +5,9 @@ import { TASK_STATUS_CLASS_MAP, TASK_STATUS_TEXT_MAP } from "@/constants";
 import Pagination from "@/Components/Pagination";
 import SelectInput from "@/Components/SelectInput";
 import TextInput from "@/Components/TextInput";
-export default function({tasks, queryParams}){
+export default function({tasks, queryParams = null}){
+      // searchFieldChange Function
+      queryParams = queryParams || {}
 
     const searchFieldChanged = (name, value) =>{
         if (value){
