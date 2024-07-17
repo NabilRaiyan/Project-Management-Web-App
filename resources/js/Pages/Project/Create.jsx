@@ -40,7 +40,7 @@ export default function Create({auth}){
                             <div>
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="project_image_path" value="Project Image"></InputLabel>
                                 <TextInput id="project_image_path" type="file" name="image" 
-                                value={data.image} className="mt-1 block w-full text-white" onChange={e => setData('image', e.target.value)}></TextInput>
+                                className="mt-1 block w-full text-white" onChange={e => setData('image', e.target.files[0])}></TextInput>
                                 <InputError message={errors.image} className="mt-3 text-xl"></InputError>
                             </div>
                             {/* project name */}
