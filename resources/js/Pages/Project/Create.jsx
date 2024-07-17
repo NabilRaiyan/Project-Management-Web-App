@@ -2,7 +2,7 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, useForm } from "@inertiajs/react";
+import { Head, useForm, Link } from "@inertiajs/react";
 import TextAreaInput from "@/Components/TextAreaInput";
 import SelectInput from "@/Components/SelectInput";
 export default function Create({auth}){
@@ -18,7 +18,7 @@ export default function Create({auth}){
     // onSubmit function to submit the form 
     const onSubmit = (e)=>{
         e.preventDefault();
-        post(route("project.create"))
+        post(route("project.store"))
     }
 
     return (
@@ -41,22 +41,22 @@ export default function Create({auth}){
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="project_image_path" value="Project Image"></InputLabel>
                                 <TextInput id="project_image_path" type="file" name="image" 
                                 value={data.image} className="mt-1 block w-full text-white" onChange={e => setData('image', e.target.value)}></TextInput>
-                                <InputError message={errors.image} className="mt-3"></InputError>
+                                <InputError message={errors.image} className="mt-3 text-xl"></InputError>
                             </div>
                             {/* project name */}
                             <div className="mt-6">
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="project_name" value="Project Name"></InputLabel>
                                 <TextInput id="project_name" type="text" name="name" isFocused={true}
-                                value={data.name} className="mt-1 block w-full text-white caret-gray-800" onChange={e => setData('name', e.target.value)}></TextInput>
-                                <InputError message={errors.name} className="mt-3"></InputError>
+                                value={data.name} className="mt-1 block w-full text-gray-800 caret-gray-800" onChange={e => setData('name', e.target.value)}></TextInput>
+                                <InputError message={errors.name} className="mt-3 text-xl"></InputError>
                             </div>
 
                             {/* project description */}
                             <div className="mt-6">
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="project_description" value="Project Description"></InputLabel>
                                 <TextAreaInput id="project_description" type="text" name="description"
-                                value={data.description} className="mt-1 block w-full text-white caret-gray-800" onChange={e => setData('description', e.target.value)}></TextAreaInput>
-                                <InputError message={errors.description} className="mt-3"></InputError>
+                                value={data.description} className="mt-1 block w-full text-gray-800 caret-gray-800" onChange={e => setData('description', e.target.value)}></TextAreaInput>
+                                <InputError message={errors.description} className="mt-3 text-xl"></InputError>
                             </div>
 
                             {/* project status */}
@@ -70,18 +70,27 @@ export default function Create({auth}){
                                     <option value="completed">Completed</option>
 
                                 </SelectInput>
-                                <InputError message={errors.status} className="mt-3"></InputError>
+                                <InputError message={errors.status} className="mt-3 text-xl"></InputError>
                             </div>
-
 
                             {/* project due_date */}
                             <div className="mt-6">
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="project_due_date" value="Project Due Date"></InputLabel>
                                 <TextInput id="project_due_date" type="date" name="due_date"
                                 value={data.due_date} className="mt-1 block w-full text-gray-800" onChange={e => setData('due_date', e.target.value)}></TextInput>
-                                <InputError message={errors.due_date} className="mt-3"></InputError>
+                                <InputError message={errors.due_date} className="mt-3 text-xl"></InputError>
                             </div>
-                            
+
+                            {/* buttons */}
+                            <div className="mt-8 text-right">
+                                <Link href={route("project.index")} className="bg-gray-100 py-2 px-3 text-gray-800 rounded shadow transition-all hover:bg-gray-200 mr-2">
+                                    Cancel
+                                </Link>
+                                <button className="bg-emerald-500 py-1 px-3 text-white rounded shadow transition-all
+                                hover:bg-emerald-600">
+                                    Submit
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
