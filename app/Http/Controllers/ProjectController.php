@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Resources\ProjectResource;
 use App\Models\Project;
 use App\Http\Resources\TaskResource;
+use Illuminate\Support\Facades\Auth;
+
 // creating project controller class
 class ProjectController extends Controller
 {
@@ -47,7 +48,12 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
-        dd($data);
+        $data['created_by'] = Auth::id();
+        $data['updated_by'] = Auth::id();
+
+        Project::create($data);
+
+        return to_route('project.index');
     }
 
     /**
