@@ -8,7 +8,6 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, router } from "@inertiajs/react";
 import TableHeading from "@/Components/TableHeading";
 
-// creating index class
 
 export default function Index({auth, projects, queryParams = null, success}){
     // searchFieldChange Function
