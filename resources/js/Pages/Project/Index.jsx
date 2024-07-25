@@ -1,5 +1,4 @@
-// video watched until 2:55 min
-// create new project button does not working
+// video watched until 3:34 min
 
 import Pagination from "@/Components/Pagination";
 import SelectInput from "@/Components/SelectInput";
@@ -9,6 +8,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, router } from "@inertiajs/react";
 import TableHeading from "@/Components/TableHeading";
 
+// creating index class
 
 export default function Index({auth, projects, queryParams = null, success}){
     // searchFieldChange Function
