@@ -10,7 +10,6 @@ import TableHeading from "@/Components/TableHeading";
 
 // creating index class
 
-
 export default function Index({auth, projects, queryParams = null, success}){
     // searchFieldChange Function
     queryParams = queryParams || {}
