@@ -134,8 +134,6 @@ export default function Index({auth, projects, queryParams = null, success}){
                                         Delete
                                     </Link>
                                 </td>
-
-
                             </tr>
                         ))}
                             
