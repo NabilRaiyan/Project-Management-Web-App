@@ -78,6 +78,8 @@ export default function Show({auth, project, tasks, queryParams}){
             </div>
         </div>
 
+        
+
         {/* Task table show  */}
         <div className="pb-12">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
