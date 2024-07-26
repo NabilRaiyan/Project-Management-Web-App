@@ -46,6 +46,7 @@ export default function Index({auth, projects, queryParams = null, success}){
         router.get(route('project.index'), queryParams);
     }
 
+    // authenticated layout
     return (
         <AuthenticatedLayout
         user={auth.user}
