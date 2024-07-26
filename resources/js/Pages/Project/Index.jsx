@@ -57,9 +57,9 @@ export default function Index({auth, projects, queryParams = null, success}){
             </div>
             }
         >
+        {/* project head */}
         <Head title="Projects" />
         
-
         <div className="py-12">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
             {/* Successfully created project message */}
