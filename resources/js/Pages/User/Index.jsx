@@ -83,9 +83,7 @@ export default function Index({auth, users, queryParams = null, success}){
                                 <TableHeading sortChange={sortChange} name="id" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >ID</TableHeading>
                                 <TableHeading sortChange={sortChange} name="name" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >Name</TableHeading>
                                 <TableHeading sortChange={sortChange} name="email" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >Email</TableHeading>
-                                
                                 <TableHeading sortChange={sortChange} name="created_at" sort_field={queryParams.sort_field} sort_direction={queryParams.sort_direction} >Created At</TableHeading>
-                            
                                 <th className="px-1 py-3 text-right">Actions</th>
                             </tr>
                         </thead>
