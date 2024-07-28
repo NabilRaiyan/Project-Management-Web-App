@@ -105,7 +105,14 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+        $image = $data['image'] ?? null;
+        $data['updated_by'] = Auth::id();
+        if ($image){
+            $data['image_path'] = $image->store('project/'.Str::random(), "public");
+        }
+        $project->update($data);
+        return to_route('project.index')->with('success', "Project \"$project->name\" is updated");
     }
 
     /**
