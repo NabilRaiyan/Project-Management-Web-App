@@ -7,18 +7,19 @@ import TextAreaInput from "@/Components/TextAreaInput";
 import SelectInput from "@/Components/SelectInput";
 export default function Create({auth, project}){
     // inirtia form variable
-    const {data, setData, put, reset, errors} = useForm({
+    const {data, setData, post, reset, errors} = useForm({
         image: project.image_path || "",
         name: project.name || "",
         status: project.status || "",
         description: project.description || "",
         due_date: project.due_date || "",
+        _method: 'PUT',
     })
 
     // onSubmit function to submit the form 
     const onSubmit = (e)=>{
         e.preventDefault();
-        put(route("project.update", project.id))
+        post(route("project.update", project.id))
     }
 
     return (

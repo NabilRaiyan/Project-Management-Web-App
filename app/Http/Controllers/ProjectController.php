@@ -96,7 +96,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return inertia(("Project/Edit"), [
+        return inertia("Project/Edit", [
             'project' => new ProjectResource($project),
         ]);
     }
@@ -111,7 +111,7 @@ class ProjectController extends Controller
         $data['updated_by'] = Auth::id();
         if ($image){
             if($project->image_path){
-                Storage::disk('public')->delete($project->image_path);
+                Storage::disk('public')->delete(dirname($project->image_path));
             }
             $data['image_path'] = $image->store('project/'.Str::random(), "public");
         }
