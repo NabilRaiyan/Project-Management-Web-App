@@ -63,7 +63,7 @@ export default function Create({auth, projects, users}){
                             <div>
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="task_image_path" value="Task Image"></InputLabel>
                                 <TextInput id="task_image_path" type="file" name="image" 
-                                className="mt-1 block w-full text-white" onChange={e => setData('image', e.target.files[0])}></TextInput>
+                                className="mt-1 block w-full text-white" onChange={e => setData('image_path', e.target.files[0])}></TextInput>
                                 <InputError message={errors.image} className="mt-3 text-xl"></InputError>
                             </div>
                             {/* task name */}
