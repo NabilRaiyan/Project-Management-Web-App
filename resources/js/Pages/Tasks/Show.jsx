@@ -1,4 +1,4 @@
-import { TASK_STATUS_CLASS_MAP, TASK_STATUS_TEXT_MAP } from "@/constants";
+import { TASK_PRIORITY_CLASS_MAP, TASK_PRIORITY_TEXT_MAP, TASK_STATUS_CLASS_MAP, TASK_STATUS_TEXT_MAP } from "@/constants";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import TaskTable from "../Tasks/TaskTable";
 
@@ -70,6 +70,14 @@ export default function Show({auth, task, tasks, queryParams}){
                             </div>
                         </div>
                         <div>
+                            <label className="px-6 font-bold text-lg">Task Priority</label>
+                            <p className="mt-2 px-6 py-3">
+                            <span className={
+                                        "px-6 py-2 rounded text-white " + TASK_PRIORITY_CLASS_MAP[task.priority]
+                                    }>{TASK_PRIORITY_TEXT_MAP[task.priority]}</span>
+                            </p>
+                        </div>
+                        <div>
                             <label className="px-6 font-bold text-lg">Task Description</label>
                             <p className="mt-1 px-6 py-2 mb-3">{task.description}</p>
                         </div>
@@ -78,15 +86,7 @@ export default function Show({auth, task, tasks, queryParams}){
             </div>
         </div>
 
-        {/* Task table show  */}
-        <div className="pb-12">
-            <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg py-5 px-6">
-                        <TaskTable tasks={tasks} queryParams={queryParams}></TaskTable>
-                </div>
-                
-            </div>
-        </div>
+      
 
         </AuthenticatedLayout>
     )

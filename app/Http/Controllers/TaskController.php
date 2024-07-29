@@ -94,25 +94,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        $query = $task->tasks();
-        
-        $sort_field = request('sort_field', 'created_at');
-        $sort_direction = request('sort_direction', "desc");
-
-        if (request("name")){
-            $query->where("name", "like", "%" . request("name") . "%");
-        }
-
-        if (request("status")){
-            $query->where("status", request("status"));
-        }
-
-        $tasks = $query->orderBy($sort_field, $sort_direction)->paginate(10)->onEachSide(1);
-
         return inertia('Tasks/Show', [
             'task' => new TaskResource($task),
-            "tasks" => TaskResource::collection($tasks),
-            "queryParams" => request()->query() ?: null,
         ]);
     }
 

@@ -105,7 +105,11 @@ export default function({tasks, queryParams = null, success}){
                         <tr key={task.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <td className="px-1 py-2 text-nowrap">{task.id}</td>
                             <td className="px-1 py-2 text-nowrap"><img src={task.image_path} style={{ width: 60 }} alt="" /></td>
-                            <td className="px-1 py-2">{task.name}</td>
+                            <td className="px-1 py-2">
+                            <Link href={route("task.show", task.id)} className="px-3 py-2 hover:underline" >
+                                        {task.name}
+                            </Link>
+                            </td>
                             <td className="px-1 py-2">
                                 <span className={"px-3 py-1 rounded text-white " + TASK_STATUS_CLASS_MAP[task.status]}>{TASK_STATUS_TEXT_MAP[task.status]}</span>
                             </td>
