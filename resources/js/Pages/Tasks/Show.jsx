@@ -1,6 +1,7 @@
 import { TASK_PRIORITY_CLASS_MAP, TASK_PRIORITY_TEXT_MAP, TASK_STATUS_CLASS_MAP, TASK_STATUS_TEXT_MAP } from "@/constants";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import TaskTable from "../Tasks/TaskTable";
+import { Link } from "@inertiajs/react";
 
 
 export default function Show({auth, task, tasks, queryParams}){
@@ -69,6 +70,26 @@ export default function Show({auth, task, tasks, queryParams}){
                                 <p className="mt-2 px-3">{task.updatedBy.name}</p>
                             </div>
                         </div>
+
+
+                        <div className="p-3 grid gap-1 grid-cols-2">
+                            <div>
+                                <label className="px-3 font-bold text-lg">Assigned User</label>
+                                <p className="mt-2 px-3">{task.assignedUser.name}</p>
+                            </div>
+                        </div>
+
+                        <div className="p-3 grid gap-1 grid-cols-2">
+                            <div>
+                                <label className="px-3 font-bold text-lg">Project</label>
+                                <p className="mt-2 px-3 text-blue-600">
+                                    <Link className="text-blue-600 hover:text-blue-800" href={route("project.show", task.project.id)}>
+                                    {task.project.name}
+                                    </Link>
+                                </p>
+                            </div>
+                        </div>
+
                         <div>
                             <label className="px-6 font-bold text-lg">Task Priority</label>
                             <p className="mt-2 px-6 py-3">
