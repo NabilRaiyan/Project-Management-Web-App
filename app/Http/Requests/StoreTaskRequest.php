@@ -23,11 +23,16 @@ class StoreTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'project_id' => 'required|exists:projects,id',
             "image" => ['nullable', 'image'],
             "name"=> ['required', 'max:50'],
             "description"=> ['nullable', 'string'],
-            "due_date"=> ['required', 'date'],
             "status"=> ['required', Rule::in(['pending', 'in_progress', 'completed'])],
+            "due_date"=> ['required', 'date'],
+            "priority"=> ['required', Rule::in(['low', 'medium', 'high'])],
+            'assigned_user_id' => 'required|exists:users,id',
+
+
 
         ];
     }

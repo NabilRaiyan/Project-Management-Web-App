@@ -5,7 +5,11 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, useForm, Link } from "@inertiajs/react";
 import TextAreaInput from "@/Components/TextAreaInput";
 import SelectInput from "@/Components/SelectInput";
-export default function Create({auth}){
+
+
+
+// Task create
+export default function Create({auth, projects, users}){
     // inirtia form variable
     const {data, setData, post, reset, errors} = useForm({
         image: '',
@@ -44,9 +48,11 @@ export default function Create({auth}){
                                 <SelectInput id="task_project_id" type="text" name="project_id"
                                 value={data.project_id} className="mt-1 block w-full text-gray-700" onChange={e => setData('project_id', e.target.value)}>
                                     <option value="">Select Project</option>
-                                    <option value="pending">Pending</option>
-                                    <option value="in_progress">In Progress</option>
-                                    <option value="completed">Completed</option>
+                                    {
+                                        projects.data.map(project => (
+                                            <option value={project.id} key={project.id}>{project.name}</option>
+                                        ))
+                                    }
 
                                 </SelectInput>
                                 <InputError message={errors.status} className="mt-3 text-xl"></InputError>
@@ -114,16 +120,21 @@ export default function Create({auth}){
 
                             {/* assigned user */}
                             <div className="mt-6 mb-6">
-                                <InputLabel className="text-white mb-4 text-xl" htmlFor="task_assigned_user" value="Assigned User"></InputLabel>
-                                <SelectInput id="task_assigned_user" type="text" name="priority"
-                                value={data.assigned_user_id} className="mt-1 block w-full text-gray-700" onChange={e => setData('assigned_user_id', e.target.value)}>
+                                <InputLabel className="text-white mb-4 text-xl" htmlFor="task_assigned_user" value="Select User To Assign for The Task"></InputLabel>
+                                <SelectInput id="task_assigned_user" type="text" name="assigned_user_id"
+                                className="mt-1 block w-full text-gray-700" 
+                                onChange={(e) => setData('assigned_user_id', parseInt(e.target.value))}
+                                >
                                     <option value="">Select Assigned User</option>
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
+                                    {
+                                        users.data.map((user) => (
+                                            <option value={user.id} key={user.id}>{user.name}</option>
+                                        ))
+                                    }
 
                                 </SelectInput>
                                 <InputError message={errors.assigned_user_id} className="mt-3 text-xl"></InputError>
+
                             </div>
 
 

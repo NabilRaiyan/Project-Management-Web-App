@@ -5,6 +5,9 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, useForm, Link } from "@inertiajs/react";
 import TextAreaInput from "@/Components/TextAreaInput";
 import SelectInput from "@/Components/SelectInput";
+
+
+
 export default function Create({auth}){
     // inirtia form variable
     const {data, setData, post, reset, errors} = useForm({

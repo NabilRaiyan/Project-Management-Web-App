@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 // importing libraries
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Resources\ProjectResource;
 use App\Http\Resources\TaskResource;
+use App\Http\Resources\UserResource;
+use App\Models\Project;
 use App\Models\Task;
-
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Log;
 
 
 // creating task controller
@@ -47,7 +50,14 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return inertia("Tasks/Create");
+        $projects = Project::query()->orderBy('name', 'asc')->get();
+        $users = User::all();
+
+
+        return inertia("Tasks/Create", [
+            'projects' => ProjectResource::collection($projects),
+            'users' => UserResource::collection($users),
+        ]);
 
     }
 
@@ -56,8 +66,15 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
+
+
         $data = $request->validated();
         /** @var $image \illuminate\Http\UploadedFile */
+
+        Log::info($data);
+
+        $data['assigned_user_id'] = (int) $data['assigned_user_id'];
+
         $image = $data['image'] ?? null;
         $data['created_by'] = Auth::id();
         $data['updated_by'] = Auth::id();
