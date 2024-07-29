@@ -19,6 +19,15 @@ export default function({tasks, queryParams = null}){
         router.get(route('task.index'), queryParams);
     };
 
+    // delete Task
+    const deleteTask = (task)=>{
+        if (!window.confirm("Do you want to delete this task?")){
+            return;
+        }else{
+            router.delete(route('task.destroy', task.id))
+        }
+    }
+
     // onKeyPress Function
     const onKeyPress = (name, e) => {
         if (e.key != "Enter") return;
@@ -98,9 +107,9 @@ export default function({tasks, queryParams = null}){
                                 <Link href={route('task.edit', task.id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-1">
                                     Edit
                                 </Link>
-                                <Link href={route('task.destroy', task.id)} className="font-medium text-red-600 dark:text-red-500 hover:underline mx-1">
-                                    Delete
-                                </Link>
+                                <button onClick={ (e) => deleteTask(task)} className="font-medium text-red-600 dark:text-red-500 hover:underline mx-1">
+                                        Delete
+                                </button>
                             </td>
 
 
