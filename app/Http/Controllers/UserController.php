@@ -81,16 +81,16 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->validated();
-        $image = $data['image'] ?? null;
-        $data['updated_by'] = Auth::id();
-        if ($image){
-            if($user->image_path){
-                Storage::disk('public')->deleteDirectory(dirname($user->image_path));
-            }
-            $data['image_path'] = $image->store('user/'.Str::random(), "public");
+        $password = $data['password'] ?? null;
+        if($password){
+            $data['password'] = bcrypt($password);
+        }else{
+            unset($data['password']);
         }
+        $data['updated_by'] = Auth::id();
+       
         $user->update($data);
-        return to_route('user.index')->with('success', "Project \"$user->name\" is updated");
+        return to_route('user.index')->with('success', "User \"$user->name\" is updated");
     }
 
     /**
