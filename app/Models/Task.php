@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
+    protected $fillable = ['image_path','name', 'description', 'status', 'due_date', 'created_by', 'priority', 'assigned_user_id', 'created_by', 'updated_by', 'project_id'];
+
 
     public function Project(){
         return $this->belongsTo(Project::class);

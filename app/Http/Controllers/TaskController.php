@@ -47,7 +47,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return inertia("Task/Create");
+        return inertia("Tasks/Create");
 
     }
 
@@ -90,7 +90,7 @@ class TaskController extends Controller
 
         $tasks = $query->orderBy($sort_field, $sort_direction)->paginate(10)->onEachSide(1);
 
-        return inertia('Task/Show', [
+        return inertia('Tasks/Show', [
             'task' => new TaskResource($task),
             "tasks" => TaskResource::collection($tasks),
             "queryParams" => request()->query() ?: null,
@@ -102,7 +102,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        return inertia("Task/Edit", [
+        return inertia("Tasks/Edit", [
             'task' => new TaskResource($task),
         ]);
     }
