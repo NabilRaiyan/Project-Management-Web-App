@@ -1,4 +1,4 @@
-// video watched until 3:34 min
+// video watched until 4:13 min
 
 import Pagination from "@/Components/Pagination";
 import TextInput from "@/Components/TextInput";
@@ -89,8 +89,8 @@ export default function Index({auth, users, queryParams = null, success}){
                         </thead>
                         <thead className="text-ts text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
                             <tr className="text-nowrap">
-                                <th className="px-3 py-5"></th>
-                                <th className="px-3 py-5"></th>
+                                <th className="px-0 py-5"></th>
+                                <th className="px-0 py-5"></th>
                                 <th className="px-1 py-5">
                                     <TextInput defaultValue={queryParams.name} className="w-60" placeholder="User Name" onBlur={e => searchFieldChanged('name', e.target.value)} onKeyPress={e => onKeyPress('name', e)} />
                                 </th>

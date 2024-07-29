@@ -1,10 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Resources\UserResource;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 // creating user controller
 class UserController extends Controller
@@ -68,7 +70,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return inertia("User/Edit", [
+            'user' => new UserResource($user),
+        ]);
     }
 
     /**
@@ -76,7 +80,17 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->validated();
+        $image = $data['image'] ?? null;
+        $data['updated_by'] = Auth::id();
+        if ($image){
+            if($user->image_path){
+                Storage::disk('public')->deleteDirectory(dirname($user->image_path));
+            }
+            $data['image_path'] = $image->store('user/'.Str::random(), "public");
+        }
+        $user->update($data);
+        return to_route('user.index')->with('success', "Project \"$user->name\" is updated");
     }
 
     /**

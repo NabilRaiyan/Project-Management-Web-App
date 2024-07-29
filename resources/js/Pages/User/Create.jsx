@@ -47,7 +47,7 @@ export default function Create({auth}){
                             {/* user email */}
                             <div className="mt-6">
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="user_email" value="User Email"></InputLabel>
-                                <TextInput id="user_email" type="text" name="email" isFocused={true}
+                                <TextInput id="user_email" type="text" name="email" 
                                 value={data.email} className="mt-1 block w-full text-gray-800 caret-gray-800" onChange={e => setData('email', e.target.value)}></TextInput>
                                 <InputError message={errors.email} className="mt-3 text-xl"></InputError>
                             </div>
@@ -55,7 +55,7 @@ export default function Create({auth}){
                              {/* user password */}
                              <div className="mt-6">
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="user_password" value="User Password"></InputLabel>
-                                <TextInput id="user_password" type="password" name="email" isFocused={true}
+                                <TextInput id="user_password" type="password" name="email" 
                                 value={data.password} className="mt-1 block w-full text-gray-800 caret-gray-800" onChange={e => setData('password', e.target.value)}></TextInput>
                                 <InputError message={errors.password} className="mt-3 text-xl"></InputError>
                             </div>
@@ -63,7 +63,7 @@ export default function Create({auth}){
                              {/* user password confirmation */}
                              <div className="mt-6">
                                 <InputLabel className="text-white mb-4 text-xl" htmlFor="user_password_confirmation" value="Confirm Password"></InputLabel>
-                                <TextInput id="user_password_confirmation" type="password" name="email" isFocused={true}
+                                <TextInput id="user_password_confirmation" type="password" name="email" 
                                 value={data.password_confirmation} className="mt-1 block w-full text-gray-800 caret-gray-800" onChange={e => setData('password_confirmation', e.target.value)}></TextInput>
                                 <InputError message={errors.password_confirmation} className="mt-3 text-xl"></InputError>
                             </div>
