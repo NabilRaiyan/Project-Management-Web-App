@@ -5,7 +5,7 @@ import { Head, Link, router } from "@inertiajs/react";
 import TaskTable from "./TaskTable";
 
 
-export default function Index({auth, tasks, queryParams}){
+export default function Index({auth, tasks, queryParams, success}){
   
     return (
         <AuthenticatedLayout
@@ -22,7 +22,7 @@ export default function Index({auth, tasks, queryParams}){
         <div className="py-12">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <TaskTable tasks={tasks} queryParams={queryParams}></TaskTable>
+                    <TaskTable tasks={tasks} queryParams={queryParams} success={success}></TaskTable>
                 </div>
             </div>
         </div>

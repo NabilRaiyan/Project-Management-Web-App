@@ -42,6 +42,8 @@ class TaskController extends Controller
         return inertia("Tasks/TaskIndex", [
             "tasks" => TaskResource::collection($tasks),
             "queryParams" => request()->query() ?: null,
+            'success' => session('success'),
+
         ]);
     }
 
@@ -145,7 +147,7 @@ class TaskController extends Controller
             $data['image_path'] = $image->store('task/'.Str::random(), "public");
         }
         $task->update($data);
-        return to_route('task.index')->with('success', "Task \"$task->name\" is updated");
+        return to_route('task.index')->with('success', "Task \"$task->name\" is updated successfully");
     }
 
     /**
