@@ -147,7 +147,7 @@ class TaskController extends Controller
     }
 
     // my tasks
-    public function myTask(){
+    public function myTasks(){
 
         $sort_field = request('sort_field', 'created_at');
         $sort_direction = request('sort_direction', "desc");
