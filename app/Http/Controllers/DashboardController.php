@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Log;
+
 
 class DashboardController extends Controller
 {
@@ -12,17 +13,16 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
 
-        $totla = 400;
+        
         $totalPendingTask = Task::query()->where('status', 'pending')->count();
         $myPendingTask = Task::query()->where('assigned_user_id', $user->id)
                              ->where('status', 'pending')
                              ->count();
-
+        
 
         return Inertia::render('Dashboard', [
             'totalPendingTask' => $totalPendingTask,
             'myPendingTask' => $myPendingTask,
-            'total' => $totla,
             'auth' => ['user' => $user],
         ]);
     }
