@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Task;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -11,11 +9,8 @@ class DashboardController extends Controller
 
         $user = auth()->user();
         $totalPendingTask = Task::query()->where('status', 'pending')->count();
-        $myPendingTask = Task::query()->where('assigned_user_id', $user->id)->count();
+        $myPendingTask = Task::query()->where('status', 'pending')->where('assigned_user_id', $user->id)->count();
 
-        return inertia("Dashboard", [
-            'totalPendingTask' => $totalPendingTask,
-            'myPendingTask' => $myPendingTask,
-        ]);
+        return inertia('Dashboard', compact('totalPendingTask', 'myPendingTask'));
     }
 }

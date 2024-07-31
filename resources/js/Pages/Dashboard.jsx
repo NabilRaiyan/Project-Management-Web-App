@@ -1,7 +1,15 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import { useEffect } from 'react';
+
 
 export default function Dashboard({ auth, myPendingTask, totalPendingTask }) {
+
+    useEffect(() => {
+        console.log('Auth:', auth);
+        console.log('My Pending Task:', myPendingTask);
+        console.log('Total Pending Task:', totalPendingTask);
+    }, [auth, myPendingTask, totalPendingTask]);
     return (
         <AuthenticatedLayout
             user={auth.user}
